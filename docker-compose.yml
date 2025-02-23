@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  webapp:
+    build: ./api
+    ports:
+      - 8080
+  database:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlservercicd
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "mypassword"
+    restart: always
+    # volumes:
+    #   - sqlserver_data:/var/opt/mssql
+  
+  client:
+    build: ./cicdpractice
+    ports:
+      - 8081:8081
+
+
+
+   
