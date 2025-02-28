@@ -48,4 +48,4 @@ jobs:
             sudo su
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/webapp:latest
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/client:latest
-            docker-compose up -d
+            docker compose up -d
