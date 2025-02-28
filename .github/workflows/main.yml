@@ -45,6 +45,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            sudo su
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/webapp:latest
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/client:latest
             docker-compose up -d
